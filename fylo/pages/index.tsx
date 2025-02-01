@@ -6,6 +6,7 @@ import Back from "@/public/icon-access-anywhere.svg"
 import security from "@/public/icon-security.svg"
 import time from "@/public/icon-collaboration.svg"
 import store from "@/public/icon-any-file.svg"
+import productive from "@/public/illustration-stay-productive.png"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -76,6 +77,26 @@ export default function Home() {
             Whether you're sharing holiday photos or work documents, Fylo has you covered allowing for all types to be securely stored and shared.
           </p>
         </div>
+      </section>
+
+      <section className="md:flex grid justify-items-start justify-center items-center mb-4 ">
+        <Image  className="ml-6"
+          src={productive}
+          alt="Illustration"
+          width={400}
+          height={40}
+        />
+
+        <div className=" items-center">
+        <h2 className="text-5xl font-bold ml-[2rem]">Stay productive,<br /> where you are</h2>
+        <p className="text-lg text-slate-300 font-light ml-[2rem] mt-6">Never let location be an issue when accessing your files.Fylo has you <br />covered for all your file storage needs. <br /> </p>
+        <p className="text-lg text-slate-300 font-light ml-[2rem] mt-6">Securely share files and folders with friends,family and colleagues for live <br /> collaboration. No email attachtments required.</p>
+      
+      
+
+
+        </div>
+     
       </section>
 
     </div>
