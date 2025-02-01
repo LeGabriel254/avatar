@@ -2,8 +2,11 @@ import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import Hero from "@/public/illustration-intro.png"
 import { Button } from "@/components/common/Button";
-import Back from "@/public/bg-curvy-desktop.svg"
-import access from "@/public/icon-access-anywhere.svg"
+import Back from "@/public/icon-access-anywhere.svg"
+import security from "@/public/icon-security.svg"
+import time from "@/public/icon-collaboration.svg"
+import store from "@/public/icon-any-file.svg"
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -41,75 +44,40 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="max-w-xl mx-auto p-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 items-center">
-        <div className="justify-center">
-          <Image className=""
-            src={Back}
-            alt="Background"
-            objectFit="cover"
-            height={400}
-            quality={100}
-          />
-
-          <div className="flex flex-col items-center text-center bg-gray-800 p-6 rounded-2xl shadow-md">
-            <div className="">
-              <Image
-                src={access}
-                width={80}
-                alt="access to my file"
-                quality={100}
-              />
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Access your files, anywhere</h3>
-            <p className="text-gray-300">The ability to use a smartphone, tablet, or computer to access your account means your files follow you everywhere.</p>
-          </div>
-
-          <div className="flex flex-col items-center text-center bg-gray-800 p-6 rounded-2xl shadow-md mt-3">
-            <div className="">
-              <Image
-                src={access}
-                width={80}
-                alt="access to my file"
-                quality={100}
-              />
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Access your files, anywhere</h3>
-            <p className="text-gray-300">The ability to use a smartphone, tablet, or computer to access your account means your files follow you everywhere.</p>
-          </div>
-
-        </div>
-        <div className="mt-4">
-
-          <div className="flex flex-col items-center text-center bg-gray-800 p-6 rounded-2xl shadow-md mt-3">
-            <div className="">
-              <Image
-                src={access}
-                width={80}
-                alt="access to my file"
-                quality={100}
-              />
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Access your files, anywhere</h3>
-            <p className="text-gray-300">The ability to use a smartphone, tablet, or computer to access your account means your files follow you everywhere.</p>
-          </div>
-
-
-          <div className="flex flex-col items-center text-center bg-gray-800 p-6 rounded-2xl shadow-md mt-3">
-            <div className="">
-              <Image
-                src={access}
-                width={80}
-                alt="access to my file"
-                quality={100}
-              />
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Access your files, anywhere</h3>
-            <p className="text-gray-300">The ability to use a smartphone, tablet, or computer to access your account means your files follow you everywhere.</p>
-          </div>
+      <section className="grid grid-cols-2 lg:grid-cols-2 lg:gap-y-16 lg:gap-x-12 gap-8 lg:px-20 my-20 md:gap-y-24 justify-evenly">
+        <div className="place-items-center">
+          <Image src={Back} height={100}  width={80} alt="icon-access" />
+          <h3 className="text-xl pt-4 font-bold">Access your files, anywhere</h3>
+          <p className="text-center pt-4 text-base text-gray-300 font-medium w-4/6 tracking-tight">
+            The ability to use a smartphone, tablet, or computer to access your account means your files follow you everywhere
+          </p>
         </div>
 
+        <div className="place-items-center -mt-5">
+        <Image src={security} height={100}  width={80} alt="icon-access" />
+          <h3 className="text-xl pt-2 font-bold">Security you can trust</h3>
+          <p className="text-center pt-4 text-base text-gray-300 font-medium w-4/6 tracking-tight">
+            2-factor authentication and user-controlled encryption are just a couple of the security features we allow to help secure your files.
+          </p>
+        </div>
+
+        <div className="place-items-center">
+        <Image src={time} height={100}  width={80} alt="icon-access" />
+          <h3 className="text-xl pt-4 font-bold">Real-time collaboration</h3>
+          <p className="text-center pt-4 text-base text-gray-300 font-medium w-4/6 tracking-tight">
+            Sercurely share files and folders with friends, family, and colleagues for live collaboration. No email attachments required.
+          </p>
+        </div>
+
+        <div className="place-items-center">
+        <Image src={store} height={100}  width={80} alt="icon-access" />
+          <h3 className="text-xl pt-5 font-bold">Store any type of file</h3>
+          <p className="text-center pt-4 text-base text-gray-300 font-medium w-4/6 tracking-tight">
+            Whether you're sharing holiday photos or work documents, Fylo has you covered allowing for all types to be securely stored and shared.
+          </p>
+        </div>
       </section>
+
     </div>
   );
 }
-
