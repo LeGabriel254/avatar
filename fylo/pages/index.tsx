@@ -7,7 +7,7 @@ import security from "@/public/icon-security.svg"
 import time from "@/public/icon-collaboration.svg"
 import store from "@/public/icon-any-file.svg"
 import productive from "@/public/illustration-stay-productive.png"
-import arrow from"@/public/icon-arrow.svg"
+import arrow from "@/public/icon-arrow.svg"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,7 +48,7 @@ export default function Home() {
 
       <section className="grid grid-cols-2 lg:grid-cols-2 lg:gap-y-16 lg:gap-x-12 gap-8 lg:px-20 my-20 md:gap-y-24 justify-evenly">
         <div className="place-items-center">
-          <Image src={Back} height={100}  width={80} alt="icon-access" />
+          <Image src={Back} height={100} width={80} alt="icon-access" />
           <h3 className="text-xl pt-4 font-bold">Access your files, anywhere</h3>
           <p className="text-center pt-4 text-base text-gray-300 font-medium w-4/6 tracking-tight">
             The ability to use a smartphone, tablet, or computer to access your account means your files follow you everywhere
@@ -56,7 +56,7 @@ export default function Home() {
         </div>
 
         <div className="place-items-center -mt-5">
-        <Image src={security} height={100}  width={80} alt="icon-access" />
+          <Image src={security} height={100} width={80} alt="icon-access" />
           <h3 className="text-xl pt-2 font-bold">Security you can trust</h3>
           <p className="text-center pt-4 text-base text-gray-300 font-medium w-4/6 tracking-tight">
             2-factor authentication and user-controlled encryption are just a couple of the security features we allow to help secure your files.
@@ -64,7 +64,7 @@ export default function Home() {
         </div>
 
         <div className="place-items-center">
-        <Image src={time} height={100}  width={80} alt="icon-access" />
+          <Image src={time} height={100} width={80} alt="icon-access" />
           <h3 className="text-xl pt-4 font-bold">Real-time collaboration</h3>
           <p className="text-center pt-4 text-base text-gray-300 font-medium w-4/6 tracking-tight">
             Sercurely share files and folders with friends, family, and colleagues for live collaboration. No email attachments required.
@@ -72,7 +72,7 @@ export default function Home() {
         </div>
 
         <div className="place-items-center">
-        <Image src={store} height={100}  width={80} alt="icon-access" />
+          <Image src={store} height={100} width={80} alt="icon-access" />
           <h3 className="text-xl pt-5 font-bold">Store any type of file</h3>
           <p className="text-center pt-4 text-base text-gray-300 font-medium w-4/6 tracking-tight">
             Whether you're sharing holiday photos or work documents, Fylo has you covered allowing for all types to be securely stored and shared.
@@ -81,7 +81,7 @@ export default function Home() {
       </section>
 
       <section className="md:flex grid justify-items-start justify-center items-center mb-4 ">
-        <Image  className="ml-6 "
+        <Image className="ml-6 "
           src={productive}
           alt="Illustration"
           width={400}
@@ -89,15 +89,14 @@ export default function Home() {
         />
 
         <div className=" items-center ml-[2rem]">
-
-        <h2 className="text-5xl font-bold">Stay productive,<br /> where you are</h2>
-        <p className="text-lg text-slate-300 font-light mt-6">Never let location be an issue when accessing your files.Fylo has you <br />covered for all your file storage needs. <br /> </p>
-        <p className="text-lg text-slate-300 font-light mt-6">Securely share files and folders with friends,family and colleagues for live <br /> collaboration. No email attachtments required.</p>
-        <button className="inline-flex gap-2 text-lg text-[#86DDE4] mt-4 hover:underline hover:text-slate-200">See how Fylo works <span><Image src={arrow} alt="arrow" width={25} height={20}/></span></button>
+          <h2 className="text-5xl font-bold">Stay productive,<br /> where you are</h2>
+          <p className="text-lg text-slate-300 font-light mt-6">Never let location be an issue when accessing your files.Fylo has you <br />covered for all your file storage needs. <br /> </p>
+          <p className="text-lg text-slate-300 font-light mt-6">Securely share files and folders with friends,family and colleagues for live <br /> collaboration. No email attachtments required.</p>
+          <button className="inline-flex gap-2 text-lg text-[#86DDE4] mt-4 hover:underline hover:text-slate-200">See how Fylo works <span><Image src={arrow} alt="arrow" width={25} height={20} /></span></button>
         </div>
 
-        
-     
+
+
       </section>
 
     </div>
