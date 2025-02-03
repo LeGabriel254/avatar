@@ -94,9 +94,6 @@ export default function Home() {
           <p className="text-lg text-slate-300 font-light mt-6">Securely share files and folders with friends,family and colleagues for live <br /> collaboration. No email attachtments required.</p>
           <button className="inline-flex gap-2 text-lg text-[#86DDE4] mt-4 hover:underline hover:text-slate-200">See how Fylo works <span><Image src={arrow} alt="arrow" width={25} height={20} /></span></button>
         </div>
-
-
-
       </section>
 
     </div>
