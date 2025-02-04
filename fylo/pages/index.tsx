@@ -111,7 +111,7 @@ export default function Home() {
       </section>
 
       {/* Prudictive section to show how the flows Works */}
-      <section className="md:flex grid justify-items-start justify-center items-center mb-4 ">
+      <section className="md:flex grid grid-cols-1 gap-4 p-4 justify-center items-center mb-4 ">
         <Image className="ml-6 "
           src={productive}
           alt="Illustration"
@@ -129,14 +129,14 @@ export default function Home() {
 
       <section>
         {/* Loop Through the arrays of CardData to render the card component using the map function */}
-        <div className="grid grid-rows-2  md:flex justify-center items-center min-h-screen ml-10 mr-10 ">
+        <div className="  md:flex justify-center items-center min-h-screen ml-10 mr-10 ">
           <Image className="hidden md:mt-[-13rem]"
             src={quote}
             width={15}
             height={15}
             alt="Arrow"
           />
-          <div className="flex gap-6">
+          <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-[6rem] gap-6 w-full max-w-5xl">
             {CardData.map((card, index) => (
               <Card
                 key={index}
@@ -151,19 +151,24 @@ export default function Home() {
       </section>
 
       {/* Input  Section */}
-      <section>
-        <div className="bg-[#21293C] shadow-md rounded-lg p-6 text-center w-30">
-          <div>
-            <h2 className="font-semibold text-3xl">Get early access today</h2>
-            <p className="font-light text-sm mt-2">
-              It only takes a minute to sign up and our free starter tier is extremely generous. If you have any <br />
-              question,our support team would be happy to help you.
-            </p>
+      <div className="bg-[#21293C] absolute shadow-md rounded-lg p-8 px-4 mt-6 text-center w-[60%] mb-9 left-1/2 bottom transform -translate-x-1/2 -translate-y-1/2">
+        <div>
+          <h2 className="font-semibold text-3xl">Get early access today</h2>
+          <p className="font-light text-sm mt-2">
+            It only takes a minute to sign up and our free starter tier is extremely generous. If you have any <br />
+            question, our support team would be happy to help you.
+          </p>
+
+          <div className="md:inline-flex mt-6 gap-6">
+            <input type="text" placeholder="email@example" className="px-12 p-1 mb-4 rounded-3xl mr-6" />
+            <Button className="ml-6 "
+              title="Get Started For Free" />
           </div>
-
         </div>
+      </div>
 
-      </section>
+
+
     </div>
   );
 }
