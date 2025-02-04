@@ -128,27 +128,23 @@ export default function Home() {
       </section>
 
       <section>
-       
+
         {/* Loop Through the arrays of CardData to render the card component using the map function */}
         <div className="grid grid-rows-2  md:flex justify-center items-center min-h-screen ml-10 mr-10 ">
-        <Image className="hidden md:mt-[-13rem]"
-        src={quote}
-        width={15}
-        height={15}
-        alt="Arrow"
-        />
+          <Image className="hidden md:mt-[-13rem]"
+            src={quote}
+            width={15}
+            height={15}
+            alt="Arrow"
+          />
           <div className="flex gap-6">
-        
             {CardData.map((card, index) => (
-              
               <Card
                 key={index}
                 name={card.name}
                 role={card.role}
                 paragraph={card.paragraph}
                 image={card.image}
-
-
               />
             ))}
           </div>
