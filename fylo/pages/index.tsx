@@ -151,7 +151,7 @@ export default function Home() {
       </section>
 
       {/* Input  Section */}
-      <div className="bg-[#21293C] absolute shadow-md rounded-lg p-8 px-4 mt-6 text-center w-[60%] mb-9 left-1/2 bottom transform -translate-x-1/2 -translate-y-1/2">
+      <div className="bg-[#21293C] absolute shadow-md rounded-lg p-8 px-4 mb-[2rem]  text-center w-[60%] md:h-[30%] left-1/2  transform -translate-x-1/2 ">
         <div>
           <h2 className="font-semibold text-3xl">Get early access today</h2>
           <p className="font-light text-sm mt-2">
@@ -161,8 +161,8 @@ export default function Home() {
 
           <div className="md:inline-flex mt-6 gap-6">
             <input type="text" placeholder="email@example" className="px-12 p-1 mb-4 rounded-3xl mr-6" />
-            <Button className="ml-6 "
-              title="Get Started For Free" />
+            <button  className="px-12 p-1 mb-4 rounded-3xl border-none bg-[#86DDE4] hover:bg-[#aaeaee] hover:text-white transition-colors duration-300">Get Started For Free</button>
+         
           </div>
         </div>
       </div>
