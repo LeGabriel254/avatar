@@ -9,6 +9,7 @@ import store from "@/public/icon-any-file.svg"
 import productive from "@/public/illustration-stay-productive.png"
 import arrow from "@/public/icon-arrow.svg"
 import Card from "@/components/common/Card";
+import quote from "@/public/bg-quotes.png"
 
 
 
@@ -127,10 +128,19 @@ export default function Home() {
       </section>
 
       <section>
+       
         {/* Loop Through the arrays of CardData to render the card component using the map function */}
         <div className="grid grid-rows-2  md:flex justify-center items-center min-h-screen ml-10 mr-10 ">
+        <Image className="hidden md:mt-[-13rem]"
+        src={quote}
+        width={15}
+        height={15}
+        alt="Arrow"
+        />
           <div className="flex gap-6">
+        
             {CardData.map((card, index) => (
+              
               <Card
                 key={index}
                 name={card.name}

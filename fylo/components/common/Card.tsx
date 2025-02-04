@@ -2,8 +2,8 @@ import { CardProps } from "@/interfaces";
 
 const Card: React.FC<CardProps> = ({ name, role, paragraph, image }) => {
   return (
-    <div className="bg-[#313847] grid grid-flow-row-dense  shadow-md rounded-lg p-6 text-center w-30">
-      <p className="text-slate-300 mt-2 text-start">{paragraph}</p>
+    <div className="bg-[#21293C] grid grid-flow-row-dense  shadow-md rounded-lg p-6 text-center w-30">
+      <p className="text-[#e3e4e5] mt-2 text-start">{paragraph}</p>
       <div className="md:flex md:items-end ">
         <img
           className="w-10 h-10 rounded-full items-end mt-4"
