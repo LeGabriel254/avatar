@@ -128,7 +128,6 @@ export default function Home() {
       </section>
 
       <section>
-
         {/* Loop Through the arrays of CardData to render the card component using the map function */}
         <div className="grid grid-rows-2  md:flex justify-center items-center min-h-screen ml-10 mr-10 ">
           <Image className="hidden md:mt-[-13rem]"
@@ -151,6 +150,20 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Input  Section */}
+      <section>
+        <div className="bg-[#21293C] shadow-md rounded-lg p-6 text-center w-30">
+          <div>
+            <h2 className="font-semibold text-3xl">Get early access today</h2>
+            <p className="font-light text-sm mt-2">
+              It only takes a minute to sign up and our free starter tier is extremely generous. If you have any <br />
+              question,our support team would be happy to help you.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
     </div>
   );
 }
