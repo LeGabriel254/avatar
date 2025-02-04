@@ -8,6 +8,9 @@ import time from "@/public/icon-collaboration.svg"
 import store from "@/public/icon-any-file.svg"
 import productive from "@/public/illustration-stay-productive.png"
 import arrow from "@/public/icon-arrow.svg"
+import Card from "@/components/common/Card";
+
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,9 +22,34 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const CardData = [
+  {
+    paragraph: "Fylo has improved our team productivity by anorder of magnitude. Since making the switch ourt team has become a well-oiled collaboration machine.",
+    name: "Satish Patel",
+    role: "Founder & CEO, Huddle",
+    image: "images/profile-1.jpg",
+
+  },
+  {
+    paragraph: "Fylo improved our team productivity by an order of magnitude. Since making the switch our team has become a well-oiled collaboration machine.",
+    name: "Bruce McKenzie",
+    role: "Founder & CEO, Huddle",
+    image: "images/profile-2.jpg",
+  },
+  {
+    paragraph: "Fylo has improved our team productivity by anorder of magnitude. Since making the switch ourt team has become a well-oiled collaboration machine.",
+    name: "Iva Boyd",
+    role: "Founder & CEO, Huddle",
+    image: "images/profile-3.jpg",
+  },
+];
+
+/* Landing Page */
 export default function Home() {
   return (
     <div>
+
+      {/* How to Get Started */}
       <section className="relative w-full flex items-center justify-center text-white">
 
         <div className="relative inset-0 z-0 items-center">
@@ -46,6 +74,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* File access */}
       <section className="grid grid-cols-2 lg:grid-cols-2 lg:gap-y-16 lg:gap-x-12 gap-8 lg:px-20 my-20 md:gap-y-24 justify-evenly">
         <div className="place-items-center">
           <Image src={Back} height={100} width={80} alt="icon-access" />
@@ -80,6 +109,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Prudictive section to show how the flows Works */}
       <section className="md:flex grid justify-items-start justify-center items-center mb-4 ">
         <Image className="ml-6 "
           src={productive}
@@ -93,6 +123,25 @@ export default function Home() {
           <p className="text-lg text-slate-300 font-light mt-6">Never let location be an issue when accessing your files.Fylo has you <br />covered for all your file storage needs. <br /> </p>
           <p className="text-lg text-slate-300 font-light mt-6">Securely share files and folders with friends,family and colleagues for live <br /> collaboration. No email attachtments required.</p>
           <button className="inline-flex gap-2 text-lg text-[#86DDE4] mt-4 hover:underline hover:text-slate-200">See how Fylo works <span><Image src={arrow} alt="arrow" width={25} height={20} /></span></button>
+        </div>
+      </section>
+
+      <section>
+        {/* Loop Through the arrays of CardData to render the card component using the map function */}
+        <div className="grid grid-rows-2  md:flex justify-center items-center min-h-screen ml-10 mr-10 ">
+          <div className="flex gap-6">
+            {CardData.map((card, index) => (
+              <Card
+                key={index}
+                name={card.name}
+                role={card.role}
+                paragraph={card.paragraph}
+                image={card.image}
+
+
+              />
+            ))}
+          </div>
         </div>
       </section>
 
