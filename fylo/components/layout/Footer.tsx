@@ -21,7 +21,7 @@ const Footer: React.FC = () => {
             quality={100}
             priority
           />
-          <h2>Lorem ispum dolor sit amet,consectetur <br /> adipiscing elit,sed do eiusmod tempor <br /> incididunt ut labore et doloe magna aliqua</h2>
+          <h2 className="mt-4">Lorem ispum dolor sit amet,consectetur <br /> adipiscing elit,sed do eiusmod tempor <br /> incididunt ut labore et doloe magna aliqua</h2>
         </div>
         <div className='mt-2 ml-6'>
           <div className='flex md:justify-center items-center gap-6'>
