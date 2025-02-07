@@ -10,6 +10,15 @@ import productive from "@/public/illustration-stay-productive.png"
 import arrow from "@/public/icon-arrow.svg"
 import Card from "@/components/common/Card";
 import quote from "@/public/bg-quotes.png"
+import { useForm } from "react-hook-form";
+import FormInput from "@/components/common/validation"; // import your custom FormInput component
+
+interface FormData {
+  name: string;
+  email: string;
+  error: string;
+  register: string
+}
 
 
 
@@ -46,7 +55,18 @@ const CardData = [
 ];
 
 /* Landing Page */
-export default function Home() {
+const Home: React.FC = () => {
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>();
+
+  const onSubmit = (data: FormData) => {
+    alert(JSON.stringify(data)); // Handle form submission
+  };
+
   return (
     <div>
 
@@ -151,7 +171,7 @@ export default function Home() {
       </section>
 
       {/* Input  Section */}
-      <div className="bg-[#21293C] absolute shadow-md rounded-lg p-8 px-4 mb-[2rem] text-center w-[60%] md:h-[30%] left-1/2  transform -translate-x-1/2 ">
+      <div className="bg-[#21293C] absolute shadow-md rounded-lg p-8 px-4 md:mb-[2rem] text-center w-[50%] md:h-[34%] left-1/2  transform -translate-x-1/2 ">
         <div>
           <h2 className="font-semibold text-3xl">Get early access today</h2>
           <p className="font-light text-sm mt-2">
@@ -159,16 +179,27 @@ export default function Home() {
             question, our support team would be happy to help you.
           </p>
 
-          <div className="md:inline-flex mt-6 gap-6">
-            <input type="text" placeholder="email@example" className="px-12 p-1 mb-4 rounded-3xl mr-6" />
-            <button  className="px-12 p-1 mb-4 rounded-3xl border-none bg-[#86DDE4] hover:bg-[#aaeaee] hover:text-white transition-colors duration-300">Get Started For Free</button>
-         
-          </div>
+          <form className="md:inline-flex mt-6 gap-6 " onSubmit={handleSubmit(onSubmit)}>
+            <FormInput
+              label=""
+              name="email"
+              type="email"
+              register={register("email", {
+                required: "Email is required",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Invalid email address",
+                },
+              })}
+              error={errors.email}
+            />
+            <button className="px-12 p-1 mb-4 rounded-3xl border-none bg-[#86DDE4] hover:bg-[#aaeaee] hover:text-white transition-colors duration-300">Get Started For Free</button>
+
+          </form>
         </div>
       </div>
-
-
-
     </div>
   );
 }
+
+export default Home;
