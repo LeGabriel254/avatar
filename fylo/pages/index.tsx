@@ -151,7 +151,7 @@ export default function Home() {
       </section>
 
       {/* Input  Section */}
-      <div className="bg-[#21293C] absolute shadow-md rounded-lg p-8 px-4 mb-[2rem]  text-center w-[60%] md:h-[30%] left-1/2  transform -translate-x-1/2 ">
+      <div className="bg-[#21293C] absolute shadow-md rounded-lg p-8 px-4 mb-[2rem] text-center w-[60%] md:h-[30%] left-1/2  transform -translate-x-1/2 ">
         <div>
           <h2 className="font-semibold text-3xl">Get early access today</h2>
           <p className="font-light text-sm mt-2">
