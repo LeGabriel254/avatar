@@ -23,6 +23,7 @@ const Footer: React.FC = () => {
           />
           <h2 className="mt-4">Lorem ispum dolor sit amet,consectetur <br /> adipiscing elit,sed do eiusmod tempor <br /> incididunt ut labore et doloe magna aliqua</h2>
         </div>
+        
         <div className='mt-2 ml-6'>
           <div className='flex md:justify-center items-center gap-6'>
             <img src="images/call.svg" alt="phone" className="w-8 h-18 ml-[2rem]" />
@@ -33,10 +34,6 @@ const Footer: React.FC = () => {
             <span className="ml-3 text-base">example@fylo.com</span>
           </div>
         </div>
-
-
-
-
 
         <nav className="grid md:grid-cols-1 ml-[1rem] mt-6">
           <Link href="/" className=" text-lg transition-colors duration-300">About Us</Link>
@@ -49,9 +46,6 @@ const Footer: React.FC = () => {
           <Link href="/movies" className=" text-lg font-light  hover:text-slate-300 transition-colors duration-300">Terms</Link>
           <Link href="/contact" className=" text-lg font-light hover:text-slate-300 transition-colors duration-300">Privacy</Link>
         </nav>
-
-
-
 
         <div className="flex space-x-4 mb-9">
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#aaeaee] border-solid">
