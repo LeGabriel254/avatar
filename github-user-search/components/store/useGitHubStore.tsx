@@ -1,30 +1,9 @@
 import { create } from "zustand";
 import { fetchUserData } from "@/components/services/fetchUserData";
+import { GitHubStoreState } from "@/interfaces";
 
-// Define the shape of user data (matches fetchUserData return type)
-interface GitHubUserData {
-  avatar_url: string;
-  login: string;
-  name: string;
-  location: string;
-  html_url: string;
-  totalRepos: number;
-  recentRepo: string;
-  lastUpdated: string | null;
-  topLanguages: string;
-}
 
-// Define the Zustand store state & actions
-interface GitHubStoreState {
-  username: string;
-  userData: GitHubUserData | null;
-  loading: boolean;
-  error: string | null;
-  setUsername: (username: string) => void;
-  searchUser: () => Promise<void>;
-}
-
-// Create Zustand store with TypeScript
+// Zustand store
 const useGitHubStore = create<GitHubStoreState>((set: (arg0: { username?: string; loading?: boolean; error?: any; userData?: { avatar_url: string; login: string; name: string; location: string; html_url: string; totalRepos: number; recentRepo: string; lastUpdated: string | null; topLanguages: string; } | null; }) => void, get: () => { username: any; }) => ({
   username: "",
   userData: null,
