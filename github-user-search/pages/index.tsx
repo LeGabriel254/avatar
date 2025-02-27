@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Particles from "react-tsparticles";
-import { loadSlim } from "tsparticles-slim"; // ✅ Correct import
+import { loadSlim } from "tsparticles-slim";
 import { Engine } from "tsparticles-engine";
 
 export default function LandingPage() {
@@ -15,7 +15,7 @@ export default function LandingPage() {
 
   return (
     <div className="relative flex items-center justify-center h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white overflow-hidden">
-      {/* The init function allows you to initialize the particles engine (like tsparticles or tsparticles-slim).*/}
+      {/* The init functionto  allows initialize of the particles engine (like tsparticles or tsparticles-slim).*/}
       <Particles
         id="tsparticles"
         init={particlesInit}
