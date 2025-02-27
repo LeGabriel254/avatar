@@ -15,10 +15,9 @@ export default function LandingPage() {
 
   return (
     <div className="relative flex items-center justify-center h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white overflow-hidden">
-      {/* ✅ Use `init` instead of `particlesInit` */}
+      {/* The init function allows you to initialize the particles engine (like tsparticles or tsparticles-slim).*/}
       <Particles
         id="tsparticles"
-        // The init function allows you to initialize the particles engine (like tsparticles or tsparticles-slim).
         init={particlesInit}
         options={{
           background: { color: "transparent" }, 
