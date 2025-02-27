@@ -1,23 +1,10 @@
 import axios from "axios";
+import { GitHubUser,GitHubRepo } from "@/interfaces";
+
 
 // Base API URL for GitHub user data
 const BASE_URL = "https://api.github.com/users/";
 
-// Define TypeScript interfaces for user and repository data
-interface GitHubUser {
-  avatar_url: string;
-  login: string;
-  name?: string;
-  location?: string;
-  html_url: string;
-  public_repos: number;
-}
-
-interface GitHubRepo {
-  name: string;
-  updated_at: string;
-  language?: string;
-}
 
 /**
  * Fetches GitHub user data, their most recently updated repository, total repositories, and top languages.
