@@ -37,14 +37,14 @@ const Search: React.FC = () => {
         }}
         className="absolute inset-0 pointer-events-none z-0"
       />
-      <form onSubmit={handleSearch} className="flex gap-2">
+      <form onSubmit={handleSearch} className="flex gap-2 ">
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Enter GitHub username"
           required
-          className="p-2 border border-gray-300 rounded-lg"
+          className="p-2 border border-gray-300 rounded-lg hover:border-none"
         />
         <button type="submit" className="p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
           Search
