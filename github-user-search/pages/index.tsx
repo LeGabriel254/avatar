@@ -37,7 +37,7 @@ export default function LandingPage() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
         className="text-center cursor-pointer"
-        onClick={() => router.push("/search")}
+        onClick={() => router.push("/Search")}
       >
         <motion.img
           src="/logo.png"
