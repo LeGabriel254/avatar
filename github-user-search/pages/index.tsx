@@ -1,37 +1,37 @@
 import { useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import { Engine } from "@tsparticles/engine";
-import { loadSlim } from "@tsparticles/slim"; // Use slim version
-import Particles from "@tsparticles/react";
-
+import Particles from "react-tsparticles";
+import { loadSlim } from "tsparticles-slim"; // ✅ Correct import
+import { Engine } from "tsparticles-engine";
 
 export default function LandingPage() {
   const router = useRouter();
 
   const particlesInit = useCallback(async (engine: Engine) => {
-    console.log();
-    await loadSlim(engine); // ✅ Correct function to load particles
+    console.log("Particles Init", engine);
+    await loadSlim(engine); //  function to load particles
   }, []);
 
   return (
     <div className="relative flex items-center justify-center h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white overflow-hidden">
+      {/* ✅ Use `init` instead of `particlesInit` */}
       <Particles
         id="tsparticles"
-        particlesInit={particlesInit} // ✅ Use `particlesInit` instead of `init`
+        // The init function allows you to initialize the particles engine (like tsparticles or tsparticles-slim).
+        init={particlesInit}
         options={{
-          background: { color: "transparent" }, // ✅ No background override
+          background: { color: "transparent" }, 
           particles: {
-            number: { value: 50 },
-            size: { value: 3 },
-            move: { enable: true, speed: 1 },
+            number: { value: 100 },
+            size: { value: 1.5 },
+            move: { enable: true, speed: 0.6 },
             opacity: { value: 0.7 },
-            color: { value: "#ffffff" }, // ⚪ White particles (visible on red bg)
+            color: { value: ["#ff0000", "#ff7300", "#ffeb00"] }, 
           },
         }}
         className="absolute inset-0 pointer-events-none z-0"
       />
-
 
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
