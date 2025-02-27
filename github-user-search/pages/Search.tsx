@@ -3,7 +3,7 @@
 import React, { FormEvent, useCallback } from "react";
 import useGitHubStore from "@/components/store/useGitHubStore";
 import Link from "next/link";
-import { loadSlim } from "tsparticles-slim"; // ✅ Correct import
+import { loadSlim } from "tsparticles-slim";
 import { Engine } from "tsparticles-engine";
 import Particles from "react-tsparticles";
 
@@ -57,7 +57,7 @@ const Search: React.FC = () => {
       {userData && (
         <div className="mt-6 p-4 bg-white shadow-lg rounded-lg flex flex-col items-center text-start">
           <img src={userData.avatar_url} alt={userData.login} className="w-24 h-24 rounded-full border-4 border-indigo-500 shadow-lg" />
-          <h2 className="mt-2 text-lg font-bold text-white">{userData.name || userData.login}</h2>
+          <h2 className="mt-2 text-lg font-bold text-black">{userData.name || userData.login}</h2>
           <p className="mt-2 text-gray-900">📍 Location: <span className="text-cyan-400">{userData.location || "Not Available"}</span></p>
           <p className="mt-1 text-gray-900">📦 Total Repositories: <span className="text-emerald-400 font-semibold">{userData.totalRepos}</span></p>
           <p className="mt-1 text-gray-900">🚀 Last Committed Repo: <span className="text-orange-400">{userData.recentRepo}</span></p>
