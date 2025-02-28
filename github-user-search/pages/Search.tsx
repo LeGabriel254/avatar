@@ -6,6 +6,7 @@ import Link from "next/link";
 import { loadSlim } from "tsparticles-slim";
 import { Engine } from "tsparticles-engine";
 import Particles from "react-tsparticles";
+import Image from "next/image";
 
 const Search: React.FC = () => {
   const { username, setUsername, searchUser, userData, loading, error } = useGitHubStore();
@@ -52,11 +53,16 @@ const Search: React.FC = () => {
       </form>
 
       {loading && <p className="mt-4 text-gray-700">Loading...</p>}
-      {error && <p className="mt-4 text-red-500">Looks like we can't find the user</p>}
+      {error && <p className="mt-4 text-red-500">Looks like we can&apos;t find the user</p>}
+
 
       {userData && (
         <div className="mt-6 p-4 bg-white shadow-lg rounded-lg flex flex-col items-center text-start">
-          <img src={userData.avatar_url} alt={userData.login} className="w-24 h-24 rounded-full border-4 border-indigo-500 shadow-lg" />
+          <Image 
+          src={userData.avatar_url} 
+          alt={userData.login} 
+          className="w-24 h-24 rounded-full border-4 border-indigo-500 shadow-lg" 
+          />
           <h2 className="mt-2 text-lg font-bold text-black">{userData.name || userData.login}</h2>
           <p className="mt-2 text-gray-900">📍 Location: <span className="text-cyan-400">{userData.location || "Not Available"}</span></p>
           <p className="mt-1 text-gray-900">📦 Total Repositories: <span className="text-emerald-400 font-semibold">{userData.totalRepos}</span></p>
