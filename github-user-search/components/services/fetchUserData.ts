@@ -1,10 +1,8 @@
 import axios from "axios";
-import { GitHubUser,GitHubRepo } from "@/interfaces";
-
+import { GitHubUser, GitHubRepo } from "@/interfaces";
 
 // Base API URL for GitHub user data
 const BASE_URL = "https://api.github.com/users/";
-
 
 /**
  * Fetches GitHub user data, their most recently updated repository, total repositories, and top languages.
@@ -62,7 +60,12 @@ export const fetchUserData = async (username: string): Promise<{
       lastUpdated,
       topLanguages,
     };
-  } catch (error: any) {
-    throw new Error(`Failed to fetch data for user: ${username} - ${error.response?.status || error.message}`);
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error)) {
+      throw new Error(`Failed to fetch data for user: ${username} - ${error.response?.status || error.message}`);
+    } else if (error instanceof Error) {
+      throw new Error(`Failed to fetch data: ${error.message}`);
+    }
+    throw new Error("An unexpected error occurred.");
   }
 };
