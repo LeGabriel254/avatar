@@ -1,10 +1,8 @@
 import { create } from "zustand";
 import { fetchUserData } from "@/components/services/fetchUserData";
-import { GitHubStoreState } from "@/interfaces";
+import { GitHubStoreState, UserData } from "@/interfaces";
 
-
-// Zustand store
-const useGitHubStore = create<GitHubStoreState>((set: (arg0: { username?: string; loading?: boolean; error?: any; userData?: { avatar_url: string; login: string; name: string; location: string; html_url: string; totalRepos: number; recentRepo: string; lastUpdated: string | null; topLanguages: string; } | null; }) => void, get: () => { username: any; }) => ({
+const useGitHubStore = create<GitHubStoreState>((set, get) => ({
   username: "",
   userData: null,
   loading: false,
@@ -15,15 +13,15 @@ const useGitHubStore = create<GitHubStoreState>((set: (arg0: { username?: string
   searchUser: async () => {
     set({ loading: true, error: null, userData: null });
     try {
-      const { username } = get(); // Get current username
-      if (!username.trim()) {
+      const username = get().username.trim();
+      if (!username) {
         throw new Error("Username cannot be empty");
       }
 
-      const data = await fetchUserData(username);
+      const data: UserData = await fetchUserData(username);
       set({ userData: data });
-    } catch (err: any) {
-      set({ error: err.message || "An error occurred" });
+    } catch (err) {
+      set({ error: err instanceof Error ? err.message : "An unknown error occurred" });
     } finally {
       set({ loading: false });
     }
