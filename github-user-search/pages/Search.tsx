@@ -61,7 +61,9 @@ const Search: React.FC = () => {
           <Image 
           src={userData.avatar_url} 
           alt={userData.login} 
-          className="w-24 h-24 rounded-full border-4 border-indigo-500 shadow-lg" 
+          width={100}
+          height={24}
+          className=" rounded-full border-4 border-indigo-500 shadow-lg" 
           />
           <h2 className="mt-2 text-lg font-bold text-black">{userData.name || userData.login}</h2>
           <p className="mt-2 text-gray-900">📍 Location: <span className="text-cyan-400">{userData.location || "Not Available"}</span></p>
