@@ -8,26 +8,26 @@ const Footer: React.FC = () => {
       </p>
 
       <nav className="flex gap-4">
-        <a 
-          href="https://github.com/LeGabriel254/avatar/tree/Master/github-user-search" 
-          target="_blank" 
-          rel="noopener noreferrer" 
+        <a
+          href="https://github.com/LeGabriel254/avatar/tree/Master/github-user-search"
+          target="_blank"
+          rel="noopener noreferrer"
           className="hover:text-gray-200"
         >
           View on GitHub
         </a>
-        <a 
-          href="https://docs.github.com/en/rest/users/users#get-a-user" 
-          target="_blank" 
-          rel="noopener noreferrer" 
+        <a
+          href="https://docs.github.com/en/rest/users/users#get-a-user"
+          target="_blank"
+          rel="noopener noreferrer"
           className="hover:text-gray-200"
         >
           API Docs
         </a>
-        <a 
-          href="https://github.com/LeGabriel254" 
-          target="_blank" 
-          rel="noopener noreferrer" 
+        <a
+          href="https://github.com/LeGabriel254"
+          target="_blank"
+          rel="noopener noreferrer"
           className="hover:text-gray-200 mr-2"
         >
           Author Gabriel Leon
@@ -35,6 +35,6 @@ const Footer: React.FC = () => {
       </nav>
     </footer>
   );
-};
+}
 
 export default Footer;
