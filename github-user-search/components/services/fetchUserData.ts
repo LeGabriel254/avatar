@@ -11,17 +11,20 @@ export const fetchUserData = async (username: string): Promise<{
   html_url: string;
   totalRepos: number;
   recentRepo: { name: string; url: string } | null;
-  topLanguages: string[]; // Fix: Ensure correct type
+  topLanguages: string[]; 
   lastUpdated: string;
 }> => {
   try {
-    const { data } = await axios.get<GitHubUser>(`${BASE_URL}${username}`);
+    // Fetch user data and repos in parallel to reduce load time
+    const [userResponse, reposResponse] = await Promise.all([
+      axios.get<GitHubUser>(`${BASE_URL}${username}`),
+      axios.get(`${BASE_URL}${username}/repos?per_page=3&sort=updated`)
+    ]);
 
-    // Fetch repos to determine top languages
-    const reposResponse = await axios.get(`${BASE_URL}${username}/repos?per_page=3&sort=updated`);
+    const userData = userResponse.data;
     const repos = Array.isArray(reposResponse.data) ? reposResponse.data : [];
 
-    // Get the most recent repo
+    // Extract recent repo
     const recentRepo = repos.length > 0
       ? { name: repos[0].name, url: repos[0].html_url }
       : null;
@@ -36,19 +39,19 @@ export const fetchUserData = async (username: string): Promise<{
 
     const topLanguages = Object.entries(languageCounts)
       .sort(([, countA], [, countB]) => countB - countA)
-      .slice(0, 1)
-      .map(([language]) => language); // Fix: Return as array, not string
+      .slice(0, 2) // Get top 2 instead of just 1
+      .map(([language]) => language);
 
     return {
-      avatar_url: data.avatar_url,
-      login: data.login,
-      name: data.name || data.login,
-      location: data.location || "Not Available",
-      html_url: data.html_url,
-      totalRepos: data.public_repos || 0,
+      avatar_url: userData.avatar_url,
+      login: userData.login,
+      name: userData.name || userData.login,
+      location: userData.location || "Not Available",
+      html_url: userData.html_url,
+      totalRepos: userData.public_repos || 0,
       recentRepo,
-      topLanguages, // Fix: Ensures an array is returned
-      lastUpdated: data.updated_at || new Date().toISOString(),
+      topLanguages, 
+      lastUpdated: userData.updated_at || new Date().toISOString(),
     };
   } catch (error) {
     if (axios.isAxiosError(error)) {
