@@ -8,6 +8,7 @@ import { Engine } from "tsparticles-engine";
 import Particles from "react-tsparticles";
 import Image from "next/image";
 import debounce from "lodash.debounce";
+import SearchHistory from "@/components/Common/SearchHistory";
 
 const Search: React.FC = () => {
   const { username, setUsername, searchUser, userData, loading, error } = useGitHubStore();
@@ -63,8 +64,8 @@ const Search: React.FC = () => {
         <button
           type="submit"
           className={`p-2 rounded-lg transition ${loading
-              ? "bg-gray-400 cursor-not-allowed"
-              : "bg-blue-500 text-white hover:bg-blue-600"
+            ? "bg-gray-400 cursor-not-allowed"
+            : "bg-blue-500 text-white hover:bg-blue-600"
             }`}
           disabled={loading}
         >
@@ -144,6 +145,9 @@ const Search: React.FC = () => {
           </Link>
         </div>
       )}
+
+      {/* Display Recent Searches */}
+      <SearchHistory />
     </div>
   );
 };
