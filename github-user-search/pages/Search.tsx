@@ -63,7 +63,7 @@ const Search: React.FC = () => {
         />
         <button
           type="submit"
-          className={`p-2 rounded-lg transition ${loading
+          className={`p-2 rounded-lg cursor-pointer transition ${loading
             ? "bg-gray-400 cursor-not-allowed"
             : "bg-blue-500 text-white hover:bg-blue-600"
             }`}

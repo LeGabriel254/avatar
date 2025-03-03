@@ -13,7 +13,7 @@ const SearchHistory = () => {
         <div className="flex justify-between items-center mb-2">
           <span className="text-gray-700">Recent Searches:</span>
           <button
-            className="text-red-600 text-sm ml-0.5 cursor-pointer"
+            className="text-red-600 text-sm ml-0.5 cursor-pointer hover:underline"
             onClick={clearSearchHistory}
           >
             Clear History
