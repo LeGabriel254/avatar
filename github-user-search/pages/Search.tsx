@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FormEvent, useCallback, useState } from "react";
-import useGitHubStore from "@/components/store/useGitHubStore";
+import useGitHubStore from "@/hooks/useGitHubStore";
 import Link from "next/link";
 import { loadSlim } from "tsparticles-slim";
 import { Engine } from "tsparticles-engine";

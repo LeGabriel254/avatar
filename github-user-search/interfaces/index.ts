@@ -4,22 +4,34 @@ import { ReactNode } from "react";
 export interface ReactComponent{
   children:ReactNode
 }
-// Define TypeScript interfaces for user and repository data
 export interface GitHubUser {
-  updated_at: string;
   avatar_url: string;
   login: string;
-  name?: string;
-  location?: string;
+  name: string;
+  location: string;
   html_url: string;
   public_repos: number;
+  updated_at: string;
 }
 
 export interface GitHubRepo {
   name: string;
-  updated_at: string;
-  language?: string;
+  html_url: string;
+  language: string | null;
 }
+
+export interface GitHubUserData {
+  avatar_url: string;
+  login: string;
+  name: string;
+  location: string;
+  html_url: string;
+  totalRepos: number;
+  recentRepo: { name: string; url: string } | null;
+  topLanguages: string[];
+  lastUpdated: string;
+}
+
 export interface GitHubStoreState {
   username: string;
   userData: {
