@@ -6,6 +6,7 @@ export interface ReactComponent{
 }
 // Define TypeScript interfaces for user and repository data
 export interface GitHubUser {
+  updated_at: string;
   avatar_url: string;
   login: string;
   name?: string;
@@ -19,10 +20,19 @@ export interface GitHubRepo {
   updated_at: string;
   language?: string;
 }
-// Defines the Zustand store state & actions
 export interface GitHubStoreState {
   username: string;
-  userData: UserData | null;
+  userData: {
+    avatar_url: string;
+    login: string;
+    name: string;
+    location: string;
+    html_url: string;
+    totalRepos: number;
+    recentRepo: { name: string; url: string } | null; // Corrected type
+    topLanguages: string[]; // Ensured it's an array
+    lastUpdated: string;
+  } | null;
   loading: boolean;
   error: string | null;
   setUsername: (username: string) => void;

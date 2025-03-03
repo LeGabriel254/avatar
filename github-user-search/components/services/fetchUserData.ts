@@ -1,14 +1,8 @@
 import axios from "axios";
-import { GitHubUser, GitHubRepo } from "@/interfaces";
+import { GitHubUser } from "@/interfaces";
 
-// Base API URL for GitHub user data
 const BASE_URL = "https://api.github.com/users/";
 
-/**
- * Fetches GitHub user data, their most recently updated repository, total repositories, and top languages.
- * @param username - The GitHub username to fetch data for.
- * @returns A promise resolving to an object containing user data.
- */
 export const fetchUserData = async (username: string): Promise<{
   avatar_url: string;
   login: string;
@@ -16,55 +10,49 @@ export const fetchUserData = async (username: string): Promise<{
   location: string;
   html_url: string;
   totalRepos: number;
-  recentRepo: string;
-  lastUpdated: string | null;
-  topLanguages: string;
+  recentRepo: { name: string; url: string } | null;
+  topLanguages: string[]; // Fix: Ensure correct type
+  lastUpdated: string;
 }> => {
   try {
-    // Fetch user profile & repositories in parallel (performance optimization)
-    const [userResponse, reposResponse] = await Promise.all([
-      axios.get<GitHubUser>(`${BASE_URL}${username}`),
-      axios.get<GitHubRepo[]>(`${BASE_URL}${username}/repos?sort=updated&per_page=100`),
-    ]);
+    const { data } = await axios.get<GitHubUser>(`${BASE_URL}${username}`);
 
-    const userData = userResponse.data;
-    const repos = reposResponse.data;
+    // Fetch repos to determine top languages
+    const reposResponse = await axios.get(`${BASE_URL}${username}/repos?per_page=3&sort=updated`);
+    const repos = Array.isArray(reposResponse.data) ? reposResponse.data : [];
 
-    // Determine the most recently updated repository
-    const recentRepo = repos.length > 0 ? repos[0].name : "No recent repositories";
-    const lastUpdated = repos.length > 0 ? repos[0].updated_at : null; // Return `null` instead of 'N/A'
+    // Get the most recent repo
+    const recentRepo = repos.length > 0
+      ? { name: repos[0].name, url: repos[0].html_url }
+      : null;
 
-    // Calculate the most used programming language
-    const languageCount: Record<string, number> = {};
+    // Aggregate languages from repositories
+    const languageCounts: Record<string, number> = {};
     repos.forEach((repo) => {
       if (repo.language) {
-        languageCount[repo.language] = (languageCount[repo.language] || 0) + 1;
+        languageCounts[repo.language] = (languageCounts[repo.language] || 0) + 1;
       }
     });
 
-    const topLanguages = Object.entries(languageCount)
+    const topLanguages = Object.entries(languageCounts)
       .sort(([, countA], [, countB]) => countB - countA)
       .slice(0, 1)
-      .map(([language]) => language)
-      .join(", ") || "N/A";
+      .map(([language]) => language); // Fix: Return as array, not string
 
-    // Return structured user data
     return {
-      avatar_url: userData.avatar_url,
-      login: userData.login,
-      name: userData.name || userData.login,
-      location: userData.location || "Not Available",
-      html_url: userData.html_url,
-      totalRepos: userData.public_repos,
+      avatar_url: data.avatar_url,
+      login: data.login,
+      name: data.name || data.login,
+      location: data.location || "Not Available",
+      html_url: data.html_url,
+      totalRepos: data.public_repos || 0,
       recentRepo,
-      lastUpdated,
-      topLanguages,
+      topLanguages, // Fix: Ensures an array is returned
+      lastUpdated: data.updated_at || new Date().toISOString(),
     };
-  } catch (error: unknown) {
+  } catch (error) {
     if (axios.isAxiosError(error)) {
-      throw new Error(`Failed to fetch data for user: ${username} - ${error.response?.status || error.message}`);
-    } else if (error instanceof Error) {
-      throw new Error(`Failed to fetch data: ${error.message}`);
+      throw new Error(`Failed to fetch data: ${error.response?.status || error.message}`);
     }
     throw new Error("An unexpected error occurred.");
   }
