@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
-
-export interface ReactComponent{
-  children:ReactNode
+export interface ReactComponent {
+  children: ReactNode;
 }
+
 export interface GitHubUser {
   avatar_url: string;
   login: string;
@@ -34,33 +34,11 @@ export interface GitHubUserData {
 
 export interface GitHubStoreState {
   username: string;
-  userData: {
-    avatar_url: string;
-    login: string;
-    name: string;
-    location: string;
-    html_url: string;
-    totalRepos: number;
-    recentRepo: { name: string; url: string } | null; // Corrected type
-    topLanguages: string[]; // Ensured it's an array
-    lastUpdated: string;
-  } | null;
+  userData: GitHubUserData | null;
+  searchHistory: { avatar_url: string; name: string }[];
   loading: boolean;
   error: string | null;
   setUsername: (username: string) => void;
   searchUser: () => Promise<void>;
+  clearSearchHistory: () => void;
 }
-
-export interface UserData {
-  avatar_url: string;
-  login: string;
-  name?: string;
-  location?: string;
-  html_url: string;
-  totalRepos?: number;
-  recentRepo?: string;
-  lastUpdated?: string | null;
-  topLanguages?: string;
-}
-
-
