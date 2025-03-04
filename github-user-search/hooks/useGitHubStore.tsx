@@ -45,7 +45,7 @@ const useGitHubStore = create<GitHubStoreState>((set, get) => ({
     }
   },
 
-  clearSearchHistory: () => set({ searchHistory: [] }), // ✅ Function to clear history
+  clearSearchHistory: () => set({ searchHistory: [] }), // Function to clear history
 }));
 
 export default useGitHubStore;
